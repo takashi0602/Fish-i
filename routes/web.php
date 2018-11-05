@@ -23,6 +23,8 @@ Route::get('/mypage', 'UserController@index');
 
 Route::get('/cart', 'CartController@index');
 
+Route::post('/cart/add', 'CartController@add');
+
 Route::get('/confirm', 'CartController@confirm');
 
 Route::get('/decision', 'CartController@decision');
