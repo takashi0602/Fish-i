@@ -6,5 +6,24 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    //
+
+  public function __construct()
+  {
+    $this->middleware('auth');
+  }
+
+  public function index()
+  {
+    return view('cart');
+  }
+
+  public function confirm()
+  {
+    return view('confirm');
+  }
+
+  public function decision()
+  {
+    return view('decision');
+  }
 }

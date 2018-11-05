@@ -2,6 +2,6 @@
 
 @section('content')
   <div class="container">
-    トップ
+    確認
   </div>
 @endsection

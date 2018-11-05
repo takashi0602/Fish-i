@@ -2,6 +2,6 @@
 
 @section('content')
   <div class="container">
-    トップ
+    確定
   </div>
 @endsection

@@ -17,4 +17,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/mypage', 'UserController@index')->name('mypage');
+Route::get('/list', 'FoodController@index');
+
+Route::get('/mypage', 'UserController@index');
+
+Route::get('/cart', 'CartController@index');
+
+Route::get('/confirm', 'CartController@confirm');
+
+Route::get('/decision', 'CartController@decision');
