@@ -17,4 +17,4 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/mypage', 'HomeController@index')->name('mypage');
+Route::get('/mypage', 'UserController@index')->name('mypage');
