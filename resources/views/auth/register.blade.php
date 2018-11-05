@@ -78,7 +78,7 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-10 text-right">
+                            <div class="col-md-10 text-right">
                                 <button type="submit" class="btn btn-primary">
                                     登録
                                 </button>
