@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cart;
+use App\Models\Food;
 use Auth;
 
 class CartController extends Controller
@@ -16,7 +17,21 @@ class CartController extends Controller
 
   public function index()
   {
-    return view('cart');
+    $count = 0;
+    $amount = $foods = $price = [];
+    $carts = Cart::where('user_id', Auth::user()->id)->get();
+    foreach ($carts as $cart) {
+      $foods[] = Food::select('name', 'price')->where('id', $cart->food_id)->first();
+      $amount[] = $cart->amount;
+    }
+    foreach ($foods as $food) {
+      $price[] = $food->price * $amount[$count++];
+    }
+    return view('cart', [
+      'foods' => $foods,
+      'price' => $price,
+      'amount' => $amount
+    ]);
   }
 
   public function add(Request $request)
