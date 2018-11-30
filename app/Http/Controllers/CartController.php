@@ -17,20 +17,26 @@ class CartController extends Controller
 
   public function index()
   {
-    $count = 0;
+    $count = $total_price = $total_amount = 0;
     $amount = $foods = $price = [];
     $carts = Cart::where('user_id', Auth::user()->id)->get();
     foreach ($carts as $cart) {
       $foods[] = Food::select('name', 'price')->where('id', $cart->food_id)->first();
+      $total_amount += $cart->amount;
       $amount[] = $cart->amount;
     }
     foreach ($foods as $food) {
+      $total_price += $food->price * $amount[$count];
       $price[] = $food->price * $amount[$count++];
     }
+    $count = 0;
     return view('cart', [
       'foods' => $foods,
       'price' => $price,
-      'amount' => $amount
+      'amount' => $amount,
+      'count' => $count,
+      'total_price' => $total_price,
+      'total_amount' => $total_amount
     ]);
   }
 
