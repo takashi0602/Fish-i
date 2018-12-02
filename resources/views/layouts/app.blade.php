@@ -39,7 +39,7 @@
               <!-- Authentication Links -->
               @guest
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ url("/list") }}">ちくわ一覧</a>
+                  <a class="nav-link" href="{{ url("/list") }}">商品一覧</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{ route('login') }}">ログイン</a>
@@ -51,7 +51,7 @@
                 </li>
               @else
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ url("/list") }}">ちくわ一覧</a>
+                  <a class="nav-link" href="{{ url("/list") }}">商品一覧</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{ url("/mypage") }}">マイページ</a>

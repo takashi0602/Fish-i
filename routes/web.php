@@ -25,6 +25,8 @@ Route::get('/cart', 'CartController@index');
 
 Route::post('/cart/add', 'CartController@add');
 
+Route::post('/cart/delete', 'CartController@delete');
+
 Route::get('/confirm', 'CartController@confirm');
 
 Route::get('/decision', 'CartController@decision');

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h3 class="mb-5">ちくわ一覧</h3>
+        <h3 class="mb-5">商品一覧</h3>
         <div>
             @foreach($foods as $food)
                 <div class="row mb-5">

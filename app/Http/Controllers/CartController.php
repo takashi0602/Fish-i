@@ -17,12 +17,12 @@ class CartController extends Controller
 
   public function index()
   {
-    $count = $total_price = $total_amount = 0;
-    $amount = $foods = $price = [];
+    $count = $total_price = 0;
+    $amount = $foods = $price = $carts_id = [];
     $carts = Cart::where('user_id', Auth::user()->id)->get();
     foreach ($carts as $cart) {
       $foods[] = Food::select('name', 'price')->where('id', $cart->food_id)->first();
-      $total_amount += $cart->amount;
+      $carts_id[] = $cart->id;
       $amount[] = $cart->amount;
     }
     foreach ($foods as $food) {
@@ -36,18 +36,34 @@ class CartController extends Controller
       'amount' => $amount,
       'count' => $count,
       'total_price' => $total_price,
-      'total_amount' => $total_amount
+      'carts_id' => $carts_id
     ]);
   }
 
   public function add(Request $request)
   {
-    Cart::create([
-      'user_id' => Auth::user()->id,
-      'food_id' => $request->food_id,
-      'amount' => $request->amount
-    ]);
-    return redirect('list');
+    if($request->amount > 0) {
+      Cart::create([
+        'user_id' => Auth::user()->id,
+        'food_id' => $request->food_id,
+        'amount' => $request->amount
+      ]);
+    }
+
+    return redirect('cart');
+  }
+
+  public function delete(Request $request)
+  {
+    $user = Cart::select('user_id')->where('id', $request->cart_id)->first();
+
+    if(is_object($user)){
+      if(intval($user->user_id) === Auth::user()->id) {
+        Cart::destroy($request->cart_id);
+      }
+    }
+
+    return redirect('/cart');
   }
 
   public function confirm()
