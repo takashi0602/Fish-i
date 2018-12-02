@@ -2,46 +2,28 @@
 
 @section('content')
     <div class="container">
-        <h3>ちくわ一覧</h3>
-        <div class="d-flex flex-wrap justify-content-around">
-          @foreach($foods as $food)
-            <div class="m-3">
-                <img src="{{ $food->img }}" class="mb-3" />
-                <h5 class="text-center mb-3">{{ $food->name }}</h5>
-
-                <button type="button" class="btn btn-primary mr-1" data-toggle="modal" data-target="#detail{{ $food->id }}">詳細</button>
-                <!-- Modal -->
-                <div class="modal fade" id="detail{{ $food->id }}" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">{{ $food->name }}</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">{{ $food->description }}</div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                                <form action="{{ url("/cart/add") }}" method="post" class="d-inline-block">
-                                    @csrf
-                                    <input type="number" class="form-control d-inline-block mr-1 w-80" value="1" name="amount"/>
-                                    <input type="hidden" value="{{ $food->id }}" name="food_id">
-                                    <button type="submit" class="btn btn-danger">カートに入れる</button>
-                                </form>
-                            </div>
+        <h3 class="mb-5">ちくわ一覧</h3>
+        <div>
+            @foreach($foods as $food)
+                <div class="row mb-5">
+                    <div class="col-md-4 mb-4 text-center">
+                        <img src="{{ $food->img }}" class="img-200" />
+                    </div>
+                    <div class="col-md-8 mb-4">
+                        <div class="h-75">
+                            <h3 class="mb-3">{{ $food->name }}</h3>
+                            <p>{{ $food->description }}</p>
                         </div>
+                        <form action="{{ url("/cart/add") }}" method="post" class="d-flex h-25 justify-content-end">
+                            @csrf
+                            <input type="number" class="form-control d-inline-block mr-1 w-80 align-self-end" value="1" name="amount"/>
+                            <input type="hidden" value="{{ $food->id }}" name="food_id">
+                            <span class="align-self-end mr-3">コ</span>
+                            <button type="submit" class="btn btn-success align-self-end">カートに入れる</button>
+                        </form>
                     </div>
                 </div>
-
-                <form action="{{ url("/cart/add") }}" method="post" class="d-inline-block">
-                    @csrf
-                    <input type="number" class="form-control d-inline-block mr-1 w-80" value="1" name="amount"/>
-                    <input type="hidden" value="{{ $food->id }}" name="food_id">
-                    <button type="submit" class="btn btn-danger">カートに入れる</button>
-                </form>
-            </div>
-          @endforeach
+            @endforeach
         </div>
     </div>
 @endsection
