@@ -50,7 +50,7 @@ class CartController extends Controller
       ]);
     }
 
-    return redirect('cart');
+    return redirect('list');
   }
 
   public function delete(Request $request)

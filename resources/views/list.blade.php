@@ -14,16 +14,26 @@
                             <h3 class="mb-3">{{ $food->name }}</h3>
                             <p>{{ $food->description }}</p>
                         </div>
-                        <form action="{{ url("/cart/add") }}" method="post" class="d-flex h-25 justify-content-end">
-                            @csrf
-                            <input type="number" class="form-control d-inline-block mr-1 w-80 align-self-end" value="1" name="amount"/>
-                            <input type="hidden" value="{{ $food->id }}" name="food_id">
-                            <span class="align-self-end mr-3">コ</span>
-                            <button type="submit" class="btn btn-success align-self-end">カートに入れる</button>
-                        </form>
+                        @guest
+                            <p class="h-25 text-danger">※ログインするか新規登録登録を済ませると、商品を購入することができます。</p>
+                        @else
+                            <form action="{{ url("/cart/add") }}" method="post" class="d-flex h-25 justify-content-end">
+                                @csrf
+                                <input type="number" class="form-control d-inline-block mr-1 w-80 align-self-end" value="1" name="amount"/>
+                                <input type="hidden" value="{{ $food->id }}" name="food_id">
+                                <span class="align-self-end mr-3">コ</span>
+                                <button type="submit" class="btn btn-success align-self-end">カートに入れる</button>
+                            </form>
+                        @endguest
                     </div>
                 </div>
             @endforeach
         </div>
+        @guest
+        @else
+            <div class="text-right">
+                <a href="{{ url("/cart") }}">カートへ</a>
+            </div>
+        @endguest
     </div>
 @endsection

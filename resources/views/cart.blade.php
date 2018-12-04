@@ -17,7 +17,7 @@
         </div>
       @endforeach
     @else
-      <p>カートにはちくわは入っていません。</p>
+      <p>カートに商品は入っていません。</p>
     @endif
   </div>
 @endsection
