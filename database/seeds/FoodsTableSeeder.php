@@ -15,7 +15,7 @@ class FoodsTableSeeder extends Seeder
       Food::truncate();
 
       $name = [
-        '豆腐ちくわ', 'ネギ入り豆腐ちくわ', '竹付きちくわ', '白ちくわ', 'あごちくわ'
+        '豆腐ちくわ', 'ネギ入り豆腐ちくわ', '竹ちくわ', '白ちくわ', 'あごちくわ'
       ];
 
       $description = [
@@ -27,7 +27,7 @@ class FoodsTableSeeder extends Seeder
       ];
 
       $price = [
-        '180', '200', '150', '180', '700'
+        '180', '200', '130', '180', '600'
       ];
 
       $img = [

@@ -9,4 +9,10 @@ class Food extends Model
   protected $fillable = [
     'name', 'description', 'price'
   ];
+
+  public function cart()
+  {
+    return $this->hasMany(Cart::class);
+  }
+
 }
