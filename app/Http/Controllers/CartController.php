@@ -41,6 +41,7 @@ class CartController extends Controller
     $total = Food::select("id")->orderBy("id", "desc")->first()->id;
     $check = Cart::where("food_id", $request->food_id)->where("user_id", Auth::user()->id)->first();
 
+    // TODO バリデーションにする
     if(intval($request->food_id) <= $total) {
       if($check && intval($request->amount) > 0) {
         Cart::where("food_id", $request->food_id)
@@ -73,26 +74,7 @@ class CartController extends Controller
 
   public function confirm()
   {
-    $total = 0;
-    $data = [];
-
-    $products = Cart::with("user","food")->where("user_id", Auth::user()->id)->get();
-
-    foreach ($products as $product) {
-      $data[] = [
-        "id" => $product->id,
-        "user_name" => $product["user"]->name,
-        "post" => $product["user"]->post,
-        "address" => $product["user"]->address,
-        "food_name" => $product["food"]->name,
-        "amount" => $product->amount,
-        "price" => $product["food"]->price
-      ];
-      $total += $product["food"]->price;
-    }
-
-    dd($data);
-
+    // TODO ユーザ情報（お届け先）と商品情報（カート内）表示
     return view('confirm');
   }
 

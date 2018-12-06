@@ -9,7 +9,7 @@ class FoodController extends Controller
 {
   public function index()
   {
-    $foods = Food::select('*')->get();
+    $foods = Food::all();
     return view('list', [
       'foods' => $foods
     ]);

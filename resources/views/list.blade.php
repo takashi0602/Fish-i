@@ -13,6 +13,7 @@
                         <div class="h-75">
                             <h3 class="mb-3">{{ $food->name }}</h3>
                             <p>{{ $food->description }}</p>
+                            <div class="text-right mb-2">1本：{{ $food->price }}円</div>
                         </div>
                         @guest
                             <p class="h-25 text-danger">※ログインするか新規登録登録を済ませると、商品を購入することができます。</p>
