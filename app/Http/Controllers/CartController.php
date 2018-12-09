@@ -21,7 +21,9 @@ class CartController extends Controller
   {
     $data = [];
 
-    $carts = User::where("id", Auth::user()->id)->first()->cart;
+    $carts = Cart::whereHas('user', function ($query) {
+      $query->where('id', Auth::user()->id);
+    })->get();
 
     foreach ($carts as $cart) {
       $data[] = [
@@ -78,7 +80,9 @@ class CartController extends Controller
     $total = 0;
     $data = [];
 
-    $carts = User::where("id", Auth::user()->id)->first()->cart;
+    $carts = Cart::whereHas('user', function ($query) {
+      $query->where('id', Auth::user()->id);
+    })->get();
     $user = User::select("name", "post", "address")->where("id", Auth::user()->id)->first();
 
     foreach ($carts as $cart) {
