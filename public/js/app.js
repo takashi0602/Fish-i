@@ -47540,7 +47540,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -47618,20 +47617,15 @@ var render = function() {
           _c(
             "transition",
             { attrs: { name: _vm.transition_name } },
-            [
-              _vm._v("\n                    あああ\n                    "),
-              _vm._l(_vm.images, function(image, index) {
-                return _vm.visible_image == index
-                  ? _c("img", {
-                      key: index,
-                      staticClass: "vue-carousel_img",
-                      attrs: { src: image.url }
-                    })
-                  : _vm._e()
-              }),
-              _vm._v("あああ\n                ")
-            ],
-            2
+            _vm._l(_vm.images, function(image, index) {
+              return _vm.visible_image == index
+                ? _c("img", {
+                    key: index,
+                    staticClass: "vue-carousel_img",
+                    attrs: { src: image.url }
+                  })
+                : _vm._e()
+            })
           )
         ],
         1

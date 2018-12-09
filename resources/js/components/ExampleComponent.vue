@@ -5,12 +5,11 @@
             <i :class="left_arrow" class="fas fa-arrow-circle-left align-self-center arrow-icon" @click="back()"></i>
             <div id="vue-carousel" class="vue-carousel">
                 <transition :name="transition_name">
-                    あああ
                     <img class="vue-carousel_img"
                          :key="index"
                          v-for="(image, index) in images"
                          v-if="visible_image == index"
-                         :src="image.url">あああ
+                         :src="image.url">
                 </transition>
             </div>
             <i :class="right_arrow" class="fas fa-arrow-circle-right align-self-center arrow-icon" @click="next()"></i>
