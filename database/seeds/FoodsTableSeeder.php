@@ -31,9 +31,7 @@ class FoodsTableSeeder extends Seeder
       ];
 
       $img = [
-        'http://placehold.it/300/?text=fish%20paste1', 'http://placehold.it/300/?text=fish%20paste2',
-        'http://placehold.it/300/?text=fish%20paste3', 'http://placehold.it/300/?text=fish%20paste4',
-        'http://placehold.it/300/?text=fish%20paste5'
+        'image1', 'image2', 'image3', 'image4', 'image5'
       ];
 
       for($i = 0; $i < 5; $i++) {

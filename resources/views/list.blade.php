@@ -7,7 +7,7 @@
             @foreach($foods as $food)
                 <div class="row mb-5">
                     <div class="col-md-4 mb-4 text-center">
-                        <img src="{{ $food->img }}" class="img-200" />
+                        <img src="{{ asset('storage/'. $food->img .'.jpg') }}" class="img-200" />
                     </div>
                     <div class="col-md-8 mb-4">
                         <div class="h-75">
