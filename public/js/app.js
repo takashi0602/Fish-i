@@ -47596,7 +47596,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "mb-4" }, [
     _c("h3", { staticClass: "mb-4" }, [_vm._v("商品ラインナップ")]),
     _vm._v(" "),
     _c("div", { staticClass: "d-flex justify-content-around bg-light py-4" }, [
@@ -47779,7 +47779,7 @@ exports = module.exports = __webpack_require__(45)(false);
 
 
 // module
-exports.push([module.i, "\n.arrow-icon {\n  font-size: 70px;\n  cursor: pointer;\n  color: #a8a9aa;\n}\n.vue-carousel {\n  height: 300px;\n  width: 300px;\n  overflow: hidden;\n  position: relative;\n}\n.vue-carousel_img {\n    height: 300px;\n    position: absolute;\n    top: 0;\n    width: 100%;\n}\n.show-next-enter-active, .show-next-leave-active,\n.show-prev-enter-active, .show-prev-leave-active {\n  -webkit-transition: all .5s;\n  transition: all .5s;\n}\n.show-next-enter, .show-prev-leave-to {\n  -webkit-transform: translateX(100%);\n          transform: translateX(100%);\n}\n.show-next-leave-to, .show-prev-enter {\n  -webkit-transform: translateX(-100%);\n          transform: translateX(-100%);\n}\n", ""]);
+exports.push([module.i, "\n.arrow-icon {\n  font-size: 35px;\n  cursor: pointer;\n  color: #a8a9aa;\n}\n@media screen and (min-width: 768px) {\n.arrow-icon {\n      font-size: 70px;\n}\n}\n.vue-carousel {\n  height: 200px;\n  width: 200px;\n  overflow: hidden;\n  position: relative;\n}\n@media screen and (min-width: 768px) {\n.vue-carousel {\n      height: 300px;\n      width: 300px;\n}\n}\n.vue-carousel_img {\n    height: 200px;\n    position: absolute;\n    top: 0;\n    width: 100%;\n}\n@media screen and (min-width: 768px) {\n.vue-carousel_img {\n        height: 300px;\n}\n}\n.show-next-enter-active, .show-next-leave-active,\n.show-prev-enter-active, .show-prev-leave-active {\n  -webkit-transition: all .5s;\n  transition: all .5s;\n}\n.show-next-enter, .show-prev-leave-to {\n  -webkit-transform: translateX(100%);\n          transform: translateX(100%);\n}\n.show-next-leave-to, .show-prev-enter {\n  -webkit-transform: translateX(-100%);\n          transform: translateX(-100%);\n}\n", ""]);
 
 // exports
 

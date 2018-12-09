@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="mb-4">
         <h3 class="mb-4">商品ラインナップ</h3>
         <div class="d-flex justify-content-around bg-light py-4">
             <i :class="left_arrow" class="fas fa-arrow-circle-left align-self-center arrow-icon" @click="back()"></i>
@@ -67,20 +67,30 @@ export default {
 
 <style lang="scss">
 .arrow-icon {
-    font-size: 70px;
+    font-size: 35px;
     cursor: pointer;
     color: #a8a9aa;
+    @media screen and (min-width: 768px){
+        font-size: 70px;
+    }
 }
 .vue-carousel {
-    height: 300px;
-    width: 300px;
+    height: 200px;
+    width: 200px;
     overflow: hidden;
     position: relative;
-    &_img {
+    @media screen and (min-width: 768px){
         height: 300px;
+        width: 300px;
+    }
+    &_img {
+        height: 200px;
         position: absolute;
         top: 0;
         width: 100%;
+        @media screen and (min-width: 768px){
+            height: 300px;
+        }
     }
 }
 
