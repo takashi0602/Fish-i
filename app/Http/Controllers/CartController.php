@@ -79,6 +79,7 @@ class CartController extends Controller
     $data = [];
 
     $carts = User::where("id", Auth::user()->id)->first()->cart;
+    $user = User::select("name", "post", "address")->where("id", Auth::user()->id)->first();
 
     foreach ($carts as $cart) {
       $data[] = [
@@ -86,15 +87,13 @@ class CartController extends Controller
         "food_name" => $cart->food->name,
         "amount" => $cart->amount,
         "price" => $cart->food->price * $cart->amount,
-        "user_name" => $cart->user->name,
-        "post" => $cart->user->post,
-        "address" => $cart->user->address
       ];
       $total += $cart->food->price * $cart->amount;
     }
 
     return view('confirm', [
       "data" => $data,
+      "user" => $user,
       "total" => $total
     ]);
 

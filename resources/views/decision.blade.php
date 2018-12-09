@@ -6,7 +6,7 @@
     <p class="mb-5">商品が届くまでしばらくお待ちください。</p>
     <div class="text-right">
       <a href="{{ url("/") }}" class="mr-3">TOPへ戻る</a>
-      <a href="{{ url("/list") }}">商品一覧へ戻る</a>
+      <a href="{{ url("/mypage/order") }}">注文履歴の確認</a>
     </div>
   </div>
 @endsection

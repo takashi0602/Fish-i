@@ -21,6 +21,10 @@ Route::get('/list', 'FoodController@index');
 
 Route::get('/mypage', 'UserController@index');
 
+Route::get('/mypage/edit', 'UserController@edit');
+
+Route::get('/mypage/order', 'UserController@order');
+
 Route::get('/cart', 'CartController@index');
 
 Route::post('/cart/add', 'CartController@add');

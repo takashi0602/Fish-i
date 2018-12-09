@@ -4,11 +4,24 @@
   <div class="container">
     @if($data)
       <div class="mb-5">
+        <h5 class="mb-4">お届け先の確認</h5>
+        <div class="row mb-2">
+          <span class="col-sm-3">名前</span>
+          <div class="col-sm-9">{{ $user->name }}</div>
+        </div>
+        <div class="row mb-2">
+          <span class="col-sm-3">郵便番号</span>
+          <div class="col-sm-9">〒{{ $user->post }}</div>
+        </div>
+        <div class="row mb-5">
+          <span class="col-sm-3">住所</span>
+          <div class="col-sm-9">{{ $user->address }}</div>
+        </div>
         <h5 class="mb-4">購入商品の確認</h5>
         @foreach($data as $food)
           <div class="row mx-0 mb-1 pb-1">
             <div class="col align-self-center">{{ $food["food_name"] }}</div>
-            <div class="col-auto text-right align-self-center">{{ $food["amount"] }}つ</div>
+            <div class="col-auto text-right align-self-center">{{ $food["amount"] }}コ</div>
             <div class="col-auto text-right align-self-center">{{ $food["price"] }}円</div>
           </div>
         @endforeach
