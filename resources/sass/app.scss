@@ -8,9 +8,6 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-// top
-@import 'top';
-
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -23,4 +20,9 @@
 .img-200 {
   width: 200px;
   height: 200px;
+}
+
+.img-300 {
+  width: 300px;
+  height: 300px;
 }
