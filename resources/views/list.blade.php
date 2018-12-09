@@ -16,7 +16,7 @@
                             <div class="text-right mb-2">1本：{{ $food->price }}円</div>
                         </div>
                         @guest
-                            <p class="h-25 text-danger">※ログインするか新規登録登録を済ませると、商品を購入することができます。</p>
+                            <p class="h-25 text-danger">※ログインするか新規会員登録を済ませると、商品を購入することができます。</p>
                         @else
                             <form action="{{ url("/cart/add") }}" method="post" class="d-flex h-25 justify-content-end">
                                 @csrf

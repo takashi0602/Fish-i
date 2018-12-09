@@ -29,4 +29,4 @@ Route::post('/cart/delete', 'CartController@delete');
 
 Route::get('/confirm', 'CartController@confirm');
 
-Route::get('/decision', 'CartController@decision');
+Route::post('/decision', 'CartController@decision');

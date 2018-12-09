@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\Food;
+use App\Models\Order;
 use Auth;
 
 class CartController extends Controller
@@ -56,7 +57,7 @@ class CartController extends Controller
       }
     }
 
-    return redirect('list');
+    return redirect('cart');
   }
 
   public function delete(Request $request)
@@ -74,12 +75,44 @@ class CartController extends Controller
 
   public function confirm()
   {
-    // TODO ユーザ情報（お届け先）と商品情報（カート内）表示
-    return view('confirm');
+    $total = 0;
+    $data = [];
+
+    $carts = User::where("id", Auth::user()->id)->first()->cart;
+
+    foreach ($carts as $cart) {
+      $data[] = [
+        "id" => $cart->id,
+        "food_name" => $cart->food->name,
+        "amount" => $cart->amount,
+        "price" => $cart->food->price * $cart->amount,
+        "user_name" => $cart->user->name,
+        "post" => $cart->user->post,
+        "address" => $cart->user->address
+      ];
+      $total += $cart->food->price * $cart->amount;
+    }
+
+    return view('confirm', [
+      "data" => $data,
+      "total" => $total
+    ]);
+
   }
 
-  public function decision()
+  public function decision(Request $request)
   {
+    if($request->id == Auth::user()->id) {
+      $carts = User::where("id", Auth::user()->id)->first()->cart;
+      foreach ($carts as $cart) {
+        Order::create([
+          'user_id' => Auth::user()->id,
+          'food_id' => $cart->food->id,
+          'amount' => $cart->amount
+        ]);
+        Cart::destroy("id", $cart->id);
+      }
+    }
     return view('decision');
   }
 }
