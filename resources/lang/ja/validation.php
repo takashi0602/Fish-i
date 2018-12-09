@@ -149,7 +149,8 @@ return [
     'name' => '名前',
     'email' => 'メールアドレス',
     'post' => '郵便番号',
-    'address' => '住所'
+    'address' => '住所',
+    'password' => 'パスワード'
   ],
 
 ];
