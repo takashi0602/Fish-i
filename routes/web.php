@@ -23,6 +23,8 @@ Route::get('/mypage', 'UserController@index');
 
 Route::get('/mypage/edit', 'UserController@edit');
 
+Route::post('/mypage/edit/post', 'UserController@post');
+
 Route::get('/mypage/order', 'UserController@order');
 
 Route::get('/cart', 'CartController@index');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Order;
+use App\Http\Requests\UserRequest;
 use Auth;
 
 class UserController extends Controller
@@ -34,7 +35,23 @@ class UserController extends Controller
 
   public function edit()
   {
-    return view("edit");
+    $user = User::select("name", "email", "post", "address")->where("id", Auth::user()->id)->first();
+
+    return view('edit', [
+      "user" => $user
+    ]);
+  }
+
+  public function post(UserRequest $request)
+  {
+//    dd($request->name);
+    User::where("id", Auth::user()->id)->update([
+      "name" => $request->name,
+      "post" => $request->post,
+      "address" => $request->address
+    ]);
+
+    return redirect("/mypage/edit");
   }
 
   public function order()

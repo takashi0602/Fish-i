@@ -3,7 +3,7 @@
 @section('content')
   <div class="container">
     <h3 class="mb-4">注文履歴</h3>
-    <table class="table">
+    <table class="table mb-5">
       <thead>
         <tr>
           <th scope="col">商品名</th>
@@ -21,5 +21,8 @@
         @endforeach
       </tbody>
     </table>
+    <div class="text-right">
+      <a href="{{ url("/mypage") }}">マイページへ戻る</a>
+    </div>
   </div>
 @endsection
