@@ -5,7 +5,7 @@
 ```
 $ git clone https://github.com/takashi0602/fish-i.git
 $ cd fish-i
-$ touch .env
+$ cp .env.example .env
 $ php artisan key:generate
 $ touch database/database.sqlite
 $ php artisan migrate
