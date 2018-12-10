@@ -22,7 +22,7 @@
                                 @csrf
                                 <input type="number" class="form-control d-inline-block mr-1 w-80 align-self-end" value="1" name="amount"/>
                                 <input type="hidden" value="{{ $food->id }}" name="food_id">
-                                <span class="align-self-end mr-3">コ</span>
+                                <span class="align-self-end mr-3">本</span>
                                 <button type="submit" class="btn btn-success align-self-end">カートに入れる</button>
                             </form>
                         @endguest

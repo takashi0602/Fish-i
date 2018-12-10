@@ -15,7 +15,7 @@
         @foreach($data as $order)
           <tr>
             <td>{{ $order["name"] }}</td>
-            <td>{{ $order["amount"] }}コ</td>
+            <td>{{ $order["amount"] }}本</td>
             <td>{{ $order["price"] }}円</td>
           </tr>
         @endforeach

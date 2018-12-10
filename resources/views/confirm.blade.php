@@ -21,7 +21,7 @@
         @foreach($data as $food)
           <div class="row mx-0 mb-1 pb-1">
             <div class="col align-self-center">{{ $food["food_name"] }}</div>
-            <div class="col-auto text-right align-self-center">{{ $food["amount"] }}コ</div>
+            <div class="col-auto text-right align-self-center">{{ $food["amount"] }}本</div>
             <div class="col-auto text-right align-self-center">{{ $food["price"] }}円</div>
           </div>
         @endforeach
